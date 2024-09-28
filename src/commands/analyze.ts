@@ -138,6 +138,10 @@ class AnalyzeCommand extends Command {
         kubeDatabaseContainers: Flags.string({
             description: 'Pass kubebernetes database containers manually',
         }),
+        output: Flags.string({
+            description: "Path to save the result's JSON file",
+            char: 'o',
+        }),
     };
 
     async run() {
@@ -235,6 +239,14 @@ class AnalyzeCommand extends Command {
                 }
             );
             const { result } = await tasks.run();
+
+            if (flags.output) {
+                const fs = require('node:fs');
+                fs.writeFileSync(flags.output, JSON.stringify(result, null, 2));
+
+                console.log(`\n✅ Results saved in ${flags.output}`);
+            }
+
             displayAnalysisResults(result, isFree);
         } catch (error: any) {
             console.error('\n❌ Failed!');
