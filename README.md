@@ -239,7 +239,7 @@ USAGE
   $ greenframe analyze [BASEURL] [SCENARIO] [-C <value>] [-K <value>] [-t <value>] [-p <value>] [-c <value>]
     [--commitId <value>] [-b <value>] [-s <value>] [-a] [-i] [--locale] [--timezoneId] [-e <value>] [-E <value>]
     [--dockerdHost <value>] [--dockerdPort <value>] [--containers <value>] [--databaseContainers <value>]
-    [--kubeContainers <value>] [--kubeDatabaseContainers <value>]
+    [--kubeContainers <value>] [--kubeDatabaseContainers <value>] [-o <value>]
 
 ARGUMENTS
   BASEURL   Your baseURL website
@@ -254,6 +254,7 @@ FLAGS
   -c, --commitMessage=<value>       Pass commit message manually
   -e, --envVar=<value>...           List of environment vars to read in the scenarios
   -i, --ignoreHTTPSErrors           Ignore HTTPS errors during analysis
+  -o, --output=<value>              Path to save the result's JSON file
   -p, --projectName=<value>         Project name
   -s, --samples=<value>             Number of runs done for the score computation
   -t, --threshold=<value>           Consumption threshold
